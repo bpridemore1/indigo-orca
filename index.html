@@ -74,6 +74,7 @@
     <a href="#ein">EIN</a>
     <a href="#how">How it works</a>
     <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
   </nav>
 </header>
 
@@ -202,6 +203,32 @@
     <a class="btn" href="https://buy.stripe.com/6oU00cgq97ducrzdHm3ks07" target="_blank" rel="noopener">Start LLC formation — $297</a>
   </div>
 </div>
+
+<section id="contact">
+  <div class="wrap" style="max-width:640px;">
+    <h2>Contact</h2>
+    <p class="lede">Questions before you buy? You'll reach the founder directly — no ticket queue.</p>
+    <form id="contact-form" action="https://formspree.io/f/xwlveopg" method="POST" style="display:grid;gap:14px;">
+      <input type="text" name="name" placeholder="Your name" required style="padding:14px 16px;border-radius:10px;border:1px solid #2c2470;background:var(--card);color:var(--text);font-size:16px;">
+      <input type="email" name="email" placeholder="Your email" required style="padding:14px 16px;border-radius:10px;border:1px solid #2c2470;background:var(--card);color:var(--text);font-size:16px;">
+      <textarea name="message" placeholder="What's your question?" rows="5" required style="padding:14px 16px;border-radius:10px;border:1px solid #2c2470;background:var(--card);color:var(--text);font-size:16px;resize:vertical;"></textarea>
+      <button type="submit" class="btn" style="border:none;cursor:pointer;">Send message</button>
+      <p id="contact-note" class="note" style="text-align:center;"></p>
+    </form>
+    <script>
+      document.getElementById('contact-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        var note = document.getElementById('contact-note');
+        note.textContent = 'Sending…';
+        try {
+          var res = await fetch(this.action, { method: 'POST', body: new FormData(this), headers: { 'Accept': 'application/json' } });
+          if (res.ok) { note.textContent = 'Message sent — I\'ll get back to you personally.'; this.reset(); }
+          else { note.textContent = 'Something went wrong — email me directly at brian@indigoorca.com.'; }
+        } catch (err) { note.textContent = 'Something went wrong — email me directly at brian@indigoorca.com.'; }
+      });
+    </script>
+  </div>
+</section>
 
 <footer>
   <div class="wrap">
