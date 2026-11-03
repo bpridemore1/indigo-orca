@@ -4,9 +4,31 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="color-scheme" content="dark" />
-    <link rel="icon" href="data:," />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="favicon.png" type="image/png" sizes="32x32" />
     <title>Indigo Orca Formations — U.S. LLC Formation for International Founders</title>
     <meta name="description" content="Indigo Orca forms U.S. LLCs for founders outside the United States. Flat pricing, a simple process, and a founder on the other end of the conversation." />
+    <!--
+      Contact email: brian@indigoorca.com
+      To change the inbox, update every mailto link. Search for mailto:brian@indigoorca.com.
+        1. Pricing — USDC callout (#pricing .usdc)
+        2. Questions — USDC answer (#faq)
+        3. Getting started (#start)
+        4. Footer (footer.site)
+    -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Indigo Orca Formations — U.S. LLC Formation for International Founders" />
+    <meta property="og:description" content="Indigo Orca forms U.S. LLCs for founders outside the United States. Flat pricing, a simple process, and a founder on the other end of the conversation." />
+    <meta property="og:url" content="https://indigoorca.com" />
+    <meta property="og:image" content="https://indigoorca.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Indigo Orca Formations — U.S. LLCs for international founders" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Indigo Orca Formations — U.S. LLC Formation for International Founders" />
+    <meta name="twitter:description" content="Indigo Orca forms U.S. LLCs for founders outside the United States. Flat pricing, a simple process, and a founder on the other end of the conversation." />
+    <meta name="twitter:image" content="https://indigoorca.com/og-image.png" />
+    <meta name="twitter:image:alt" content="Indigo Orca Formations — U.S. LLCs for international founders" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -168,6 +190,22 @@
       }
       .usdc p { margin: 0; color: var(--muted); flex: 1 1 320px; }
 
+      /* DIY EIN guide, directly under the hero */
+      .guide {
+        background: var(--card);
+        border-bottom: 1px solid var(--line);
+      }
+      .guide-inner {
+        display: flex; align-items: center; justify-content: space-between;
+        gap: 18px 36px; padding-top: 26px; padding-bottom: 26px; flex-wrap: wrap;
+      }
+      .guide p {
+        margin: 0; flex: 1 1 320px; max-width: 40em;
+        font-family: var(--serif); font-size: 21px; font-weight: 500;
+        line-height: 1.4; color: var(--text);
+      }
+      .guide .btn { flex: 0 0 auto; }
+
       /* Founder note */
       .note-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 56px; }
       .note-grid p { color: var(--muted); margin: 0 0 18px; max-width: 34em; }
@@ -265,6 +303,13 @@
           </div>
         </div>
       </div>
+
+      <aside class="guide" aria-label="DIY EIN guide">
+        <div class="wrap guide-inner">
+          <p>Filing your EIN yourself? The exact step-by-step guide we follow, $29.</p>
+          <a class="btn btn-primary" href="https://indigobrian.gumroad.com/l/hjykie" target="_blank" rel="noopener">Get the guide</a>
+        </div>
+      </aside>
 
       <section id="services">
         <div class="wrap">
@@ -401,11 +446,9 @@
             </tbody>
           </table>
           <div class="usdc">
-            <span class="tag">Paying with USDC?</span>
+            <span class="tag">Paying in USDC?</span>
             <p>
-              Take <strong>10% off</strong> any service on this page. Crypto payment is being
-              set up now — until checkout opens, the discount stands as our offer: mention
-              USDC when you get in touch and the 10% comes off your invoice.
+              Email <a href="mailto:brian@indigoorca.com">brian@indigoorca.com</a> and 10% comes off your invoice.
             </p>
           </div>
           <p class="price-notes">
@@ -490,9 +533,7 @@
           <div class="faq-item">
             <h3>How does the USDC discount work?</h3>
             <p>
-              Pay for any service in USDC and 10% comes off the price above. The payment
-              method itself is being set up — until checkout opens, mention USDC when you
-              reach out and we&rsquo;ll apply the discount to your invoice.
+              Paying in USDC? Email <a href="mailto:brian@indigoorca.com">brian@indigoorca.com</a> and 10% comes off your invoice.
             </p>
           </div>
         </div>
@@ -506,7 +547,8 @@
             <strong>book the $49 strategy call</strong> if you&rsquo;re still deciding, or
             <strong>order the formation directly</strong> if you already know what you need.
             The <strong>$29 DIY EIN Guide is available on Gumroad</strong>, and the $69
-            full-service EIN filing is open as well. Either way, you&rsquo;ll hear back
+            full-service EIN filing is open as well. Either way, write to
+            <a href="mailto:brian@indigoorca.com">brian@indigoorca.com</a> and you&rsquo;ll hear back
             from a person, not a sequence of automated emails.
           </p>
           <div class="start-actions">
@@ -515,9 +557,6 @@
             <a class="btn btn-quiet" href="https://buy.stripe.com/9B6cMY3Dn8hydvD0UA3ks0g" target="_blank" rel="noopener">Order the $69 EIN service</a>
             <a class="btn btn-quiet" href="https://indigobrian.gumroad.com/l/hjykie" target="_blank" rel="noopener">Buy the $29 DIY EIN Guide on Gumroad</a>
           </div>
-          <p class="alt">
-            In the meantime, the firm is at <a href="https://indigoorca.com">indigoorca.com</a>.
-          </p>
         </div>
       </section>
     </main>
@@ -525,7 +564,8 @@
     <footer class="site">
       <div class="wrap footer-inner">
         <div>
-          <p><strong style="color: var(--text);">Indigo Orca</strong> — Indigo Orca Solutions Company.</p>
+          <p><strong style="color: var(--text);">Indigo Orca</strong> — Indigo Orca Formations.</p>
+          <p><a href="mailto:brian@indigoorca.com">brian@indigoorca.com</a></p>
           <p>
             Indigo Orca is a business formation service. It is not a law firm, accounting
             firm, or tax advisor, and nothing on this page is legal or tax advice.
