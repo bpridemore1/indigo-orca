@@ -11,10 +11,12 @@
     <!--
       Contact email: brian@indigoorca.com
       To change the inbox, update every mailto link. Search for mailto:brian@indigoorca.com.
-        1. Pricing — USDC callout (#pricing .usdc)
-        2. Questions — USDC answer (#faq)
-        3. Getting started (#start)
-        4. Footer (footer.site)
+        1. Hero (.hero p.direct)
+        2. Pricing — USDC callout (#pricing .usdc)
+        3. Questions — USDC answer (#faq)
+        4. Why this exists (#about)
+        5. Getting started (#start)
+        6. Footer (footer.site)
     -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Indigo Orca Formations — U.S. LLC Formation for International Founders" />
@@ -97,11 +99,12 @@
         margin: 0 0 22px; max-width: 21em; letter-spacing: -0.005em;
       }
       .hero p.lede {
-        font-size: 19px; color: var(--muted); max-width: 38em; margin: 0 0 34px;
+        font-size: 19px; color: var(--muted); max-width: 38em; margin: 0 0 16px;
       }
-      .hero p.who {
+      .hero p.who, .hero p.direct {
         font-size: 19px; color: var(--text); max-width: 38em; margin: 0 0 18px;
       }
+      .hero p.direct { margin: 0 0 34px; }
       .hero p.who strong { color: var(--accent); font-weight: 600; }
       .hero p.lede strong { color: var(--text); font-weight: 600; }
       .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
@@ -222,6 +225,7 @@
       .start h2 { margin-bottom: 10px; }
       .start p { color: var(--muted); max-width: 42em; margin: 0 0 28px; }
       .start p strong { color: var(--text); }
+      .start p.reassure { margin: 22px 0 0; font-size: 15px; max-width: 40em; }
       .soon {
         display: inline-block; padding: 12px 24px; font-size: 15px; font-weight: 600;
         border-radius: 4px; background: var(--indigo); color: var(--muted);
@@ -280,8 +284,10 @@
           <p class="lede">
             Indigo Orca forms limited liability companies for founders who live outside the
             United States. <strong>No SSN, no U.S. address, no trip to an embassy.</strong>
-            You deal with a founder who has formed companies himself — not a call center,
-            not a checkout funnel with twelve upsells behind it.
+          </p>
+          <p class="direct">
+            You&rsquo;re not a ticket in a queue. You email Brian, the founder, directly at
+            <a href="mailto:brian@indigoorca.com">brian@indigoorca.com</a>, and he files your paperwork himself.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#pricing">See the pricing</a>
@@ -470,9 +476,10 @@
                 <strong>&ldquo;what would you do if this were your company?&rdquo;</strong>
               </p>
               <p>
-                Indigo Orca is a small firm. The person you write to is the person who files
-                your documents. That limits how many formations we take on — and it is the
-                entire point.
+                Indigo Orca is a small firm. Brian answers
+                <a href="mailto:brian@indigoorca.com">brian@indigoorca.com</a>, and he files
+                the documents himself. That limits how many formations we take on — and it
+                is the entire point.
               </p>
             </div>
             <div>
@@ -486,7 +493,7 @@
               </p>
               <p>
                 What we can promise is narrower and, we think, worth more: careful filings,
-                honest prices, and a person who answers.
+                honest prices, and a reply from Brian himself.
               </p>
             </div>
           </div>
@@ -547,9 +554,7 @@
             <strong>book the $49 strategy call</strong> if you&rsquo;re still deciding, or
             <strong>order the formation directly</strong> if you already know what you need.
             The <strong>$29 DIY EIN Guide is available on Gumroad</strong>, and the $69
-            full-service EIN filing is open as well. Either way, write to
-            <a href="mailto:brian@indigoorca.com">brian@indigoorca.com</a> and you&rsquo;ll hear back
-            from a person, not a sequence of automated emails.
+            full-service EIN filing is open as well.
           </p>
           <div class="start-actions">
             <a class="btn btn-primary" href="https://buy.stripe.com/dRm14gb5PeFW3V37iY3ks0f" target="_blank" rel="noopener">Order the $259 Wyoming formation</a>
@@ -557,6 +562,9 @@
             <a class="btn btn-quiet" href="https://buy.stripe.com/9B6cMY3Dn8hydvD0UA3ks0g" target="_blank" rel="noopener">Order the $69 EIN service</a>
             <a class="btn btn-quiet" href="https://indigobrian.gumroad.com/l/hjykie" target="_blank" rel="noopener">Buy the $29 DIY EIN Guide on Gumroad</a>
           </div>
+          <p class="reassure">
+            You&rsquo;ll hear back from Brian at <a href="mailto:brian@indigoorca.com">brian@indigoorca.com</a>, not a sequence of automated emails.
+          </p>
         </div>
       </section>
     </main>
