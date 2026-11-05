@@ -235,9 +235,7 @@
       .founder { display: flex; gap: 20px; align-items: flex-start; margin: 0 0 1.15em; }
       .founder-slot {
         flex: 0 0 76px; width: 76px; height: 76px; border-radius: 50%;
-        border: 1px solid var(--purple); color: var(--purple);
-        display: flex; align-items: center; justify-content: center;
-        font-family: var(--serif); font-size: 30px; background: transparent;
+        object-fit: cover; border: 1px solid var(--purple); display: block;
       }
       .founder p { margin: 0; }
       #about { padding: 96px 0; }
@@ -561,8 +559,7 @@
               <strong>&ldquo;what would you do if this were your company?&rdquo;</strong>
             </p>
             <div class="founder">
-              <!-- Replace this placeholder with a real photo of Brian. -->
-              <div class="founder-slot" role="img" aria-label="Placeholder for a photo of Brian">B</div>
+              <img class="founder-slot" src="images/brian.jpg" width="76" height="76" loading="lazy" alt="Brian, founder of Indigo Orca Formations" />
               <p>
                 Indigo Orca is a small firm. Brian answers
                 <a href="mailto:brian@indigoorca.com">brian@indigoorca.com</a>, and he files
@@ -655,24 +652,12 @@
             or order the formation if you already know what you need. The $29 DIY EIN Guide
             and the $69 full-service filing are here as well.
           </p>
-          <ol class="steps">
-            <li class="step">
-              <span class="num">1</span>
-              <div><a class="btn btn-primary" href="https://buy.stripe.com/dRm14gb5PeFW3V37iY3ks0f" target="_blank" rel="noopener">Order the $259 Wyoming formation</a></div>
-            </li>
-            <li class="step">
-              <span class="num">2</span>
-              <div><a class="btn btn-primary" href="https://buy.stripe.com/4gMeV6gq9cxOajr1YE3ks06" target="_blank" rel="noopener">Book the $49 strategy call</a></div>
-            </li>
-            <li class="step">
-              <span class="num">3</span>
-              <div><a class="btn btn-primary" href="https://buy.stripe.com/9B6cMY3Dn8hydvD0UA3ks0g" target="_blank" rel="noopener">Order the $69 EIN service</a></div>
-            </li>
-            <li class="step">
-              <span class="num">4</span>
-              <div><a class="btn btn-primary" href="https://indigobrian.gumroad.com/l/hjykie" target="_blank" rel="noopener">Buy the $29 DIY EIN Guide on Gumroad</a></div>
-            </li>
-          </ol>
+          <ul class="start-links">
+            <li><a class="btn btn-primary" href="https://buy.stripe.com/dRm14gb5PeFW3V37iY3ks0f" target="_blank" rel="noopener">Order the $259 Wyoming formation</a></li>
+            <li><a class="btn btn-primary" href="https://buy.stripe.com/4gMeV6gq9cxOajr1YE3ks06" target="_blank" rel="noopener">Book the $49 strategy call</a></li>
+            <li><a class="btn btn-primary" href="https://buy.stripe.com/9B6cMY3Dn8hydvD0UA3ks0g" target="_blank" rel="noopener">Order the $69 EIN service</a></li>
+            <li><a class="btn btn-primary" href="https://indigobrian.gumroad.com/l/hjykie" target="_blank" rel="noopener">Buy the $29 DIY EIN Guide on Gumroad</a></li>
+          </ul>
           <p class="reassure">
             You&rsquo;ll hear back from Brian at <a href="mailto:brian@indigoorca.com">brian@indigoorca.com</a>, not a sequence of automated emails.
           </p>
