@@ -123,6 +123,7 @@
       }
       .btn-primary { background: var(--purple); color: #fff; }
       .btn-primary:hover { background: var(--purple-deep); color: #fff; }
+      .btn-primary:visited { color: #fff; }
       .btn-quiet {
         border-color: var(--ink); color: var(--ink); background: transparent;
       }
@@ -191,7 +192,7 @@
       .price-row .amt { margin: 2px 0 0; font-weight: 600; color: var(--ink); }
       .price-row .amt span { display: block; font-weight: 400; font-size: 14px; color: var(--muted); }
       .price-row .detail { margin: 0; color: var(--text); }
-      .price-row > a { font-weight: 600; white-space: nowrap; }
+      .price-row > a { font-weight: 600; white-space: nowrap; justify-self: start; align-self: center; }
       .usdc { margin: 22px 0 0; max-width: 40em; color: var(--text); }
       .usdc strong { color: var(--ink); font-weight: 600; }
       .price-foot { margin: 18px 0 0; max-width: 40em; color: var(--text); }
@@ -223,7 +224,8 @@
       #start p strong { color: var(--ink); }
       .start-links { list-style: none; margin: 8px 0 0; padding: 0; }
       .start-links li { margin: 0 0 10px; }
-      .start-links a { font-weight: 600; display: inline-flex; align-items: center; min-height: 44px; }
+      .start-links a { font-weight: 600; }
+      .svc-row p .btn { display: table; margin-top: 14px; }
       .price-row > a { display: inline-flex; align-items: center; min-height: 44px; }
       #start p.reassure { margin: 22px 0 0; max-width: 40em; }
 
@@ -357,7 +359,8 @@
                 bank account or sign up for payment processing — and without an SSN, you
                 can&rsquo;t get one online. We handle the paper filing with the IRS for you,
                 or sell you the same step-by-step guide we follow, if you prefer to do it
-                yourself and save the fee. <a href="https://indigobrian.gumroad.com/l/hjykie" target="_blank" rel="noopener">Get the $29 DIY guide on Gumroad</a>.
+                yourself and save the fee.
+                <a class="btn btn-primary" href="https://indigobrian.gumroad.com/l/hjykie" target="_blank" rel="noopener">Get the $29 DIY guide on Gumroad</a>
               </p>
             </div>
             <div class="svc-row">
@@ -441,7 +444,7 @@
                 <p class="amt">$259 <span>one-time, plus state fees</span></p>
               </div>
               <p class="detail">Articles of Organization filed, an operating agreement, and a registered agent for Wyoming formations.</p>
-              <a href="https://buy.stripe.com/dRm14gb5PeFW3V37iY3ks0f" target="_blank" rel="noopener">Order formation</a>
+              <a class="btn btn-primary" href="https://buy.stripe.com/dRm14gb5PeFW3V37iY3ks0f" target="_blank" rel="noopener">Order formation</a>
             </div>
             <div class="price-row">
               <div>
@@ -449,7 +452,7 @@
                 <p class="amt">$49 <span>one-time</span></p>
               </div>
               <p class="detail">Thirty minutes with Brian, before you commit to a formation.</p>
-              <a href="https://buy.stripe.com/4gMeV6gq9cxOajr1YE3ks06" target="_blank" rel="noopener">Book the call</a>
+              <a class="btn btn-primary" href="https://buy.stripe.com/4gMeV6gq9cxOajr1YE3ks06" target="_blank" rel="noopener">Book the call</a>
             </div>
             <div class="price-row">
               <div>
@@ -457,7 +460,7 @@
                 <p class="amt">$69 <span>one-time</span></p>
               </div>
               <p class="detail">We prepare and file the no-SSN EIN application with the IRS.</p>
-              <a href="https://buy.stripe.com/9B6cMY3Dn8hydvD0UA3ks0g" target="_blank" rel="noopener">Order EIN service</a>
+              <a class="btn btn-primary" href="https://buy.stripe.com/9B6cMY3Dn8hydvD0UA3ks0g" target="_blank" rel="noopener">Order EIN service</a>
             </div>
             <div class="price-row">
               <div>
@@ -465,7 +468,7 @@
                 <p class="amt">$29 <span>one-time</span></p>
               </div>
               <p class="detail">The step-by-step guide we follow, if you would rather file it yourself.</p>
-              <a href="https://indigobrian.gumroad.com/l/hjykie" target="_blank" rel="noopener">Buy on Gumroad</a>
+              <a class="btn btn-primary" href="https://indigobrian.gumroad.com/l/hjykie" target="_blank" rel="noopener">Buy on Gumroad</a>
             </div>
           </div>
           <p class="usdc">
@@ -581,10 +584,10 @@
             and the $69 full-service filing are here as well.
           </p>
           <ul class="start-links">
-            <li><a href="https://buy.stripe.com/dRm14gb5PeFW3V37iY3ks0f" target="_blank" rel="noopener">Order the $259 Wyoming formation</a></li>
-            <li><a href="https://buy.stripe.com/4gMeV6gq9cxOajr1YE3ks06" target="_blank" rel="noopener">Book the $49 strategy call</a></li>
-            <li><a href="https://buy.stripe.com/9B6cMY3Dn8hydvD0UA3ks0g" target="_blank" rel="noopener">Order the $69 EIN service</a></li>
-            <li><a href="https://indigobrian.gumroad.com/l/hjykie" target="_blank" rel="noopener">Buy the $29 DIY EIN Guide on Gumroad</a></li>
+            <li><a class="btn btn-primary" href="https://buy.stripe.com/dRm14gb5PeFW3V37iY3ks0f" target="_blank" rel="noopener">Order the $259 Wyoming formation</a></li>
+            <li><a class="btn btn-primary" href="https://buy.stripe.com/4gMeV6gq9cxOajr1YE3ks06" target="_blank" rel="noopener">Book the $49 strategy call</a></li>
+            <li><a class="btn btn-primary" href="https://buy.stripe.com/9B6cMY3Dn8hydvD0UA3ks0g" target="_blank" rel="noopener">Order the $69 EIN service</a></li>
+            <li><a class="btn btn-primary" href="https://indigobrian.gumroad.com/l/hjykie" target="_blank" rel="noopener">Buy the $29 DIY EIN Guide on Gumroad</a></li>
           </ul>
           <p class="reassure">
             You&rsquo;ll hear back from Brian at <a href="mailto:brian@indigoorca.com">brian@indigoorca.com</a>, not a sequence of automated emails.
