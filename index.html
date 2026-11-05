@@ -37,6 +37,7 @@
     <style>
       :root {
         --bg: #faf9f7;
+        --tint: #f4f2fb;
         --ink: #161513;
         --text: #1c1b19;
         --muted: #3f3d3a;
@@ -116,6 +117,16 @@
       }
       .hero p.direct { margin: 0 0 28px; }
       .hero p.who strong, .hero p.lede strong { color: var(--ink); font-weight: 600; }
+      .quiet-facts {
+        display: flex; flex-wrap: wrap; gap: 8px 20px;
+        list-style: none; margin: 0 0 22px; padding: 0;
+        font-size: 14px; color: var(--ink);
+      }
+      .quiet-facts li { display: flex; align-items: center; gap: 8px; }
+      .quiet-facts li::before {
+        content: ""; width: 6px; height: 6px; border-radius: 50%;
+        background: var(--purple); flex: 0 0 6px;
+      }
       .hero-actions { display: flex; gap: 18px 22px; flex-wrap: wrap; align-items: center; }
       .btn {
         display: inline-block; padding: 11px 18px; font-size: 15px; font-weight: 600;
@@ -139,11 +150,16 @@
       .fact .v { font-size: 15px; color: var(--text); line-height: 1.5; }
 
       section { padding: 72px 0; border-bottom: 1px solid var(--line); }
+      .overline {
+        margin: 0 0 8px; font-size: 12px; font-weight: 600;
+        letter-spacing: 0.16em; text-transform: uppercase; color: var(--purple);
+      }
       section h2 {
         font-family: var(--serif); font-weight: 500; font-size: 32px;
         line-height: 1.25; margin: 0 0 12px; color: var(--ink);
       }
       section .intro { color: var(--text); max-width: 38em; margin: 0 0 32px; }
+      .band-tint { background: var(--tint); }
 
       .guide { border-bottom: 1px solid var(--line); }
       .guide-inner {
@@ -162,41 +178,68 @@
         padding: 26px 0; border-top: 1px solid var(--line);
       }
       .svc-row:last-child { border-bottom: 1px solid var(--line); }
-      .svc-row h3 {
+      .ico { width: 22px; height: 22px; flex: 0 0 22px; color: var(--purple); }
+      .ico rect, .ico path, .ico circle, .ico line {
+        fill: none; stroke: currentColor; stroke-width: 1.5;
+        stroke-linecap: round; stroke-linejoin: round;
+      }
+      .svc-row h3, .step h3 {
+        display: flex; align-items: center; gap: 10px;
         font-family: var(--serif); font-size: 20px; font-weight: 600; margin: 0; color: var(--ink);
       }
       .svc-row p { margin: 0; color: var(--text); max-width: 40em; }
       .svc-row p strong { color: var(--ink); font-weight: 600; }
 
+      .steps { position: relative; list-style: none; margin: 0; padding: 0; }
       .step {
-        display: grid; grid-template-columns: 48px 1fr; gap: 6px 20px;
-        padding: 24px 0; border-top: 1px solid var(--line);
+        display: grid; grid-template-columns: 32px 1fr; gap: 8px 16px;
+        position: relative; padding: 0 0 28px; border: 0;
       }
-      .step:last-child { border-bottom: 1px solid var(--line); }
+      .step:not(:last-child)::before {
+        content: ""; position: absolute; left: 15px; top: 32px; bottom: 0;
+        width: 1px; background: var(--purple);
+      }
+      .step:last-child { padding-bottom: 0; }
       .step .num {
-        font-family: var(--serif); font-size: 28px; color: var(--purple);
-        line-height: 1.15; font-weight: 500;
+        width: 32px; height: 32px; border-radius: 50%;
+        border: 1px solid var(--purple); background: var(--bg);
+        color: var(--purple); font-size: 14px; font-weight: 600;
+        display: flex; align-items: center; justify-content: center;
+        position: relative; z-index: 1;
       }
-      .step h3 { font-family: var(--serif); font-size: 20px; font-weight: 600; margin: 2px 0 6px; color: var(--ink); }
+      .band-tint .step .num { background: var(--tint); }
+      .step h3 { margin: 2px 0 6px; }
       .step p { margin: 0; color: var(--text); max-width: 40em; }
+      .step > div { min-width: 0; }
+      .steps .btn { white-space: normal; max-width: 100%; }
 
-      .price-row {
-        display: grid; grid-template-columns: minmax(160px, 220px) 1fr auto;
-        gap: 8px 28px; align-items: baseline;
-        padding: 22px 0; border-top: 1px solid var(--line);
+      .price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+      .price-card {
+        display: flex; flex-direction: column; align-items: flex-start;
+        background: #fff; border: 1px solid var(--line); padding: 22px 22px 20px;
       }
-      .price-row:last-of-type { border-bottom: 1px solid var(--line); }
-      .price-row h3 {
+      .price-card h3 {
         font-family: var(--serif); font-size: 20px; font-weight: 600; margin: 0; color: var(--ink);
       }
-      .price-row .amt { margin: 2px 0 0; font-weight: 600; color: var(--ink); }
-      .price-row .amt span { display: block; font-weight: 400; font-size: 14px; color: var(--muted); }
-      .price-row .detail { margin: 0; color: var(--text); }
-      .price-row > a { font-weight: 600; white-space: nowrap; justify-self: start; align-self: center; }
+      .price-card .amt {
+        font-family: var(--serif); font-size: 40px; line-height: 1;
+        font-weight: 500; margin: 10px 0 0; color: var(--ink);
+      }
+      .price-card .fine { margin: 6px 0 0; font-size: 14px; color: var(--muted); }
+      .price-card .detail { margin: 12px 0 18px; color: var(--text); }
+      .price-card .btn { margin-top: auto; }
       .usdc { margin: 22px 0 0; max-width: 40em; color: var(--text); }
       .usdc strong { color: var(--ink); font-weight: 600; }
       .price-foot { margin: 18px 0 0; max-width: 40em; color: var(--text); }
 
+      .founder { display: flex; gap: 20px; align-items: flex-start; margin: 0 0 1.15em; }
+      .founder-slot {
+        flex: 0 0 76px; width: 76px; height: 76px; border-radius: 50%;
+        border: 1px solid var(--purple); color: var(--purple);
+        display: flex; align-items: center; justify-content: center;
+        font-family: var(--serif); font-size: 30px; background: transparent;
+      }
+      .founder p { margin: 0; }
       #about { padding: 96px 0; }
       #about .note-grid { display: block; max-width: 38em; }
       #about .note-grid p {
@@ -226,7 +269,7 @@
       .start-links li { margin: 0 0 10px; }
       .start-links a { font-weight: 600; }
       .svc-row p .btn { display: table; margin-top: 14px; }
-      .price-row > a { display: inline-flex; align-items: center; min-height: 44px; }
+      .price-card .btn { align-self: flex-start; }
       #start p.reassure { margin: 22px 0 0; max-width: 40em; }
 
       footer.site { padding: 36px 0 56px; border-top: 1px solid var(--line-strong); }
@@ -255,10 +298,9 @@
         .hero { padding: 40px 0 36px; }
         .hero h1 { font-size: clamp(30px, 8vw, 38px); }
         section, #about { padding: 48px 0; }
-        .facts { grid-template-columns: 1fr; gap: 20px; }
-        .svc-row, .price-row { grid-template-columns: 1fr; gap: 6px; }
-        .price-row { padding: 18px 0; }
-        .price-row > a { white-space: normal; }
+        .facts, .price-grid { grid-template-columns: 1fr; gap: 16px; }
+        .svc-row { grid-template-columns: 1fr; gap: 6px; }
+        .price-card .amt { font-size: 36px; }
         .guide p { font-size: 20px; }
         footer.site { padding: 32px 0 48px; }
       }
@@ -292,6 +334,11 @@
       <div class="hero">
         <div class="wrap">
           <h1>A U.S. LLC, formed properly — wherever in the world you&rsquo;re starting from.</h1>
+          <ul class="quiet-facts">
+            <li>Wyoming LLC</li>
+            <li>Registered agent included</li>
+            <li>You work with Brian directly</li>
+          </ul>
           <p class="who">
             Built for <strong>solo founders and content creators</strong> outside the US —
             form the LLC you need for Stripe, platform payouts, and sponsorship deals,
@@ -326,7 +373,7 @@
         </div>
       </div>
 
-      <aside class="guide" aria-label="DIY EIN guide">
+      <aside class="guide band-tint" aria-label="DIY EIN guide">
         <div class="wrap guide-inner">
           <p>Filing your EIN yourself? The exact step-by-step guide we follow, $29.</p>
           <a class="btn btn-primary" href="https://indigobrian.gumroad.com/l/hjykie" target="_blank" rel="noopener">Get the guide</a>
@@ -335,6 +382,7 @@
 
       <section id="services">
         <div class="wrap">
+          <p class="overline">Services</p>
           <h2>What the service does</h2>
           <p class="intro">
             Three things, done carefully. Most international founders need the first two;
@@ -342,7 +390,10 @@
           </p>
           <div class="svc">
             <div class="svc-row">
-              <h3>LLC formation</h3>
+              <h3>
+                <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+                LLC formation
+              </h3>
               <p>
                 We prepare and file your Articles of Organization, act as your organizer,
                 and deliver your filed documents and an operating agreement.
@@ -353,7 +404,10 @@
               </p>
             </div>
             <div class="svc-row">
-              <h3>EIN filing</h3>
+              <h3>
+                <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="6" width="18" height="12" rx="1.5"/><path d="M3 10h18M7 14h4"/></svg>
+                EIN filing
+              </h3>
               <p>
                 Your LLC needs an Employer Identification Number before it can open a U.S.
                 bank account or sign up for payment processing — and without an SSN, you
@@ -364,7 +418,10 @@
               </p>
             </div>
             <div class="svc-row">
-              <h3>Strategy call</h3>
+              <h3>
+                <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 6h14v9H8l-3 3z"/></svg>
+                Strategy call
+              </h3>
               <p>
                 Thirty minutes with the founder, before you commit to anything. Which
                 state, whether an LLC is even the right structure, what banking looks like
@@ -376,15 +433,19 @@
         </div>
       </section>
 
-      <section id="process">
+      <section id="process" class="band-tint">
         <div class="wrap">
+          <p class="overline">The process</p>
           <h2>How it works</h2>
           <p class="intro">No account to create, no dashboard to learn. Email and documents, in this order.</p>
           <div class="steps">
             <div class="step">
               <div class="num">1</div>
               <div>
-                <h3>Tell us about the business</h3>
+                <h3>
+                  <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 4h9l3 3v13H6z"/><path d="M15 4v3h3M8 12h8M8 16h5"/></svg>
+                  Tell us about the business
+                </h3>
                 <p>
                   A short intake: your name, your country, what the company will do, and the
                   name you want. If anything about your situation is unusual, book the
@@ -395,7 +456,10 @@
             <div class="step">
               <div class="num">2</div>
               <div>
-                <h3>We file with the state</h3>
+                <h3>
+                  <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 4h8v16H8z"/><path d="M10 8h4M10 12h4M9 19l2-2 1.5 1.5L16 15"/></svg>
+                  We file with the state
+                </h3>
                 <p>
                   We submit your Articles of Organization and, for Wyoming, set up your
                   registered agent. You receive the filed documents and your operating
@@ -407,7 +471,10 @@
             <div class="step">
               <div class="num">3</div>
               <div>
-                <h3>We file for your EIN</h3>
+                <h3>
+                  <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="5" width="16" height="14" rx="1.5"/><path d="M8 9h8M8 13h5"/></svg>
+                  We file for your EIN
+                </h3>
                 <p>
                   With the full-service option, we prepare and submit the no-SSN EIN
                   application to the IRS and send you the confirmation when it arrives.
@@ -418,7 +485,10 @@
             <div class="step">
               <div class="num">4</div>
               <div>
-                <h3>You open your accounts</h3>
+                <h3>
+                  <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 10l8-5 8 5"/><path d="M6 10v8h12v-8M4 18h16"/></svg>
+                  You open your accounts
+                </h3>
                 <p>
                   With your filed articles and EIN in hand, you can apply for a U.S. business
                   bank account and payment processing from home.
@@ -429,47 +499,44 @@
         </div>
       </section>
 
-      <section id="pricing">
+      <section id="pricing" class="band-tint">
         <div class="wrap">
+          <p class="overline">Pricing</p>
           <h2>Pricing</h2>
           <p class="intro">
             Flat prices, published here in full. The only variable is your state&rsquo;s own
             filing fee, which is charged by the state — we pass it through at cost and tell
             you the amount before you pay.
           </p>
-          <div class="prices">
-            <div class="price-row">
-              <div>
-                <h3>LLC formation</h3>
-                <p class="amt">$259 <span>one-time, plus state fees</span></p>
-              </div>
+          <div class="price-grid">
+            <article class="price-card">
+              <h3>LLC formation</h3>
+              <p class="amt">$259</p>
+              <p class="fine">one-time, plus state fees</p>
               <p class="detail">Articles of Organization filed, an operating agreement, and a registered agent for Wyoming formations.</p>
               <a class="btn btn-primary" href="https://buy.stripe.com/dRm14gb5PeFW3V37iY3ks0f" target="_blank" rel="noopener">Order formation</a>
-            </div>
-            <div class="price-row">
-              <div>
-                <h3>Strategy call</h3>
-                <p class="amt">$49 <span>one-time</span></p>
-              </div>
+            </article>
+            <article class="price-card">
+              <h3>Strategy call</h3>
+              <p class="amt">$49</p>
+              <p class="fine">one-time</p>
               <p class="detail">Thirty minutes with Brian, before you commit to a formation.</p>
               <a class="btn btn-primary" href="https://buy.stripe.com/4gMeV6gq9cxOajr1YE3ks06" target="_blank" rel="noopener">Book the call</a>
-            </div>
-            <div class="price-row">
-              <div>
-                <h3>EIN, full service</h3>
-                <p class="amt">$69 <span>one-time</span></p>
-              </div>
+            </article>
+            <article class="price-card">
+              <h3>EIN, full service</h3>
+              <p class="amt">$69</p>
+              <p class="fine">one-time</p>
               <p class="detail">We prepare and file the no-SSN EIN application with the IRS.</p>
               <a class="btn btn-primary" href="https://buy.stripe.com/9B6cMY3Dn8hydvD0UA3ks0g" target="_blank" rel="noopener">Order EIN service</a>
-            </div>
-            <div class="price-row">
-              <div>
-                <h3>EIN, DIY guide</h3>
-                <p class="amt">$29 <span>one-time</span></p>
-              </div>
+            </article>
+            <article class="price-card">
+              <h3>EIN, DIY guide</h3>
+              <p class="amt">$29</p>
+              <p class="fine">one-time</p>
               <p class="detail">The step-by-step guide we follow, if you would rather file it yourself.</p>
               <a class="btn btn-primary" href="https://indigobrian.gumroad.com/l/hjykie" target="_blank" rel="noopener">Buy on Gumroad</a>
-            </div>
+            </article>
           </div>
           <p class="usdc">
             <strong>Paying in USDC?</strong>
@@ -484,15 +551,18 @@
 
       <section id="about">
         <div class="wrap">
+          <p class="overline">Who files it</p>
           <h2>Why this exists</h2>
           <div class="note-grid">
-            <div>
-              <p>
-                The big formation platforms were built for volume. They are very good at
-                selling a package; they are less good at answering the question a founder in
-                Lisbon or Lagos or Da Nang actually has, which is usually
-                <strong>&ldquo;what would you do if this were your company?&rdquo;</strong>
-              </p>
+            <p>
+              The big formation platforms were built for volume. They are very good at
+              selling a package; they are less good at answering the question a founder in
+              Lisbon or Lagos or Da Nang actually has, which is usually
+              <strong>&ldquo;what would you do if this were your company?&rdquo;</strong>
+            </p>
+            <div class="founder">
+              <!-- Replace this placeholder with a real photo of Brian. -->
+              <div class="founder-slot" role="img" aria-label="Placeholder for a photo of Brian">B</div>
               <p>
                 Indigo Orca is a small firm. Brian answers
                 <a href="mailto:brian@indigoorca.com">brian@indigoorca.com</a>, and he files
@@ -518,8 +588,9 @@
         </div>
       </section>
 
-      <section id="faq">
+      <section id="faq" class="band-tint">
         <div class="wrap">
+          <p class="overline">Questions</p>
           <h2>Questions founders ask</h2>
           <div class="faq-item">
             <h3>Do I need a Social Security number or a U.S. address?</h3>
@@ -575,20 +646,33 @@
         </div>
       </aside>
 
-      <section id="start">
+      <section id="start" class="band-tint">
         <div class="wrap">
+          <p class="overline">Getting started</p>
           <h2>Getting started</h2>
           <p>
             Most founders either book the $49 strategy call, if you&rsquo;re still deciding,
             or order the formation if you already know what you need. The $29 DIY EIN Guide
             and the $69 full-service filing are here as well.
           </p>
-          <ul class="start-links">
-            <li><a class="btn btn-primary" href="https://buy.stripe.com/dRm14gb5PeFW3V37iY3ks0f" target="_blank" rel="noopener">Order the $259 Wyoming formation</a></li>
-            <li><a class="btn btn-primary" href="https://buy.stripe.com/4gMeV6gq9cxOajr1YE3ks06" target="_blank" rel="noopener">Book the $49 strategy call</a></li>
-            <li><a class="btn btn-primary" href="https://buy.stripe.com/9B6cMY3Dn8hydvD0UA3ks0g" target="_blank" rel="noopener">Order the $69 EIN service</a></li>
-            <li><a class="btn btn-primary" href="https://indigobrian.gumroad.com/l/hjykie" target="_blank" rel="noopener">Buy the $29 DIY EIN Guide on Gumroad</a></li>
-          </ul>
+          <ol class="steps">
+            <li class="step">
+              <span class="num">1</span>
+              <div><a class="btn btn-primary" href="https://buy.stripe.com/dRm14gb5PeFW3V37iY3ks0f" target="_blank" rel="noopener">Order the $259 Wyoming formation</a></div>
+            </li>
+            <li class="step">
+              <span class="num">2</span>
+              <div><a class="btn btn-primary" href="https://buy.stripe.com/4gMeV6gq9cxOajr1YE3ks06" target="_blank" rel="noopener">Book the $49 strategy call</a></div>
+            </li>
+            <li class="step">
+              <span class="num">3</span>
+              <div><a class="btn btn-primary" href="https://buy.stripe.com/9B6cMY3Dn8hydvD0UA3ks0g" target="_blank" rel="noopener">Order the $69 EIN service</a></div>
+            </li>
+            <li class="step">
+              <span class="num">4</span>
+              <div><a class="btn btn-primary" href="https://indigobrian.gumroad.com/l/hjykie" target="_blank" rel="noopener">Buy the $29 DIY EIN Guide on Gumroad</a></div>
+            </li>
+          </ol>
           <p class="reassure">
             You&rsquo;ll hear back from Brian at <a href="mailto:brian@indigoorca.com">brian@indigoorca.com</a>, not a sequence of automated emails.
           </p>
